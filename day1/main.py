@@ -101,17 +101,17 @@ if __name__ == '__main__':
     print(f'Solving {__file__}')
 
     # Part 1 Example
-    value = solve_part1('example_input.txt')
+    value = solve_part1('example.example')
     assert value == 3
 
     # Part 1
-    value = solve_part1('input.txt')
-    assert value == 1168
+    value = solve_part1('input.input')
+    print(value)
 
     # Part 2 Example
-    value = solve_part2('example_input.txt')
+    value = solve_part2('example.example')
     assert value == 6
 
     # Part 2
-    value = solve_part2('input.txt')
+    value = solve_part2('input.input')
     print(value)
