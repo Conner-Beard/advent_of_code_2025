@@ -8,6 +8,7 @@ class Lock():
     rotating left decreases the number
     rotating right increases the number
     """
+
     def __init__(self):
         self.state = 50
 
@@ -65,6 +66,7 @@ def solve_part1(input_file):
             elif direction == 'L':
                 lock.rotate_left()
 
+        # count when state is exactly on 0
         if lock.state == 0:
             password_counter = password_counter + 1
 
@@ -91,6 +93,7 @@ def solve_part2(input_file):
             else:
                 raise Exception("Lock must rotate in a direction!")
 
+            # count the number of times zero is passed
             if lock.state == 0:
                 password_counter = password_counter + 1
 
