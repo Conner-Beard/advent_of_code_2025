@@ -1,3 +1,6 @@
+day7: FORCE
+	cd day7; pytest
+	python3 day7/main.py
 day6: FORCE
 	cd day6; pytest
 	python3 day6/main.py
@@ -16,9 +19,6 @@ day2: FORCE
 day1: FORCE
 	cd day1; pytest
 	python3 day1/main.py
-day7: FORCE
-	cd day7; pytest
-	python3 day7/main.py
 day8: FORCE
 	cd day8; pytest
 	python3 day8/main.py
