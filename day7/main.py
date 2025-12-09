@@ -90,9 +90,17 @@ class SplitterMap():
     def get_entity(self, coordinate):
         return self.map[coordinate[0]][coordinate[1]]
 
+
 found_count = 0
 
-def send_beam(coordinate, direction='L', map=None):
+
+def print_state(state):
+    for coordinate in state:
+        print(coordinate[1] * ' ' + '|')
+
+
+def send_beam(coordinate, direction='L', map=None, state=[]):
+    state.append(coordinate)
     next_entity = map.get_entity((coordinate[0]+1, coordinate[1]))
     global found_count
 
@@ -101,27 +109,30 @@ def send_beam(coordinate, direction='L', map=None):
         # split left
         if direction == 'L':
             next_beam = (coordinate[0]+1, coordinate[1]-1)
-        # split rigth
+        # split right
         elif direction == 'R':
             next_beam = (coordinate[0]+1, coordinate[1]+1)
 
     # don't split
     elif next_entity == '.':
         next_beam = (coordinate[0]+1, coordinate[1])
+
     # found end
     elif next_entity == 'x':
         found_count = found_count + 1
+        print(len(state))
         return True
 
     for direction in ['L', 'R']:
-        send_beam(next_beam, direction=direction, map=map)
+        send_beam(next_beam, direction=direction, map=map, state=state)
 
 
 def solve_part2(input_file):
     map = SplitterMap(input_file)
     global found_count
 
-    print(map.map)
+    for row in map.map:
+        print(''.join(row))
 
     print(map.get_entity(map.start))
 
